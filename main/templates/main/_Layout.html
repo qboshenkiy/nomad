@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'css/site.css' %}" rel="stylesheet">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-bar-flex">
+                <img src="{% static '/images/cropped-NC_logo.png' %}" class="logo" alt="" width="140" height="100%"/>
+                <ul class="nav-ul">
+                    <li class="nav-li">О нас</li>
+                    <li class="nav-li">Новости</li>
+                    <li class="nav-li">Специальности</li>
+                    <li class="nav-li">Стоимость</li>
+                    <li class="nav-li">Как поступить</li>
+                    <li class="nav-li">Контакты</li>
+                </ul>
+            </div>
+        </nav>
+        <div class="head-container">
+            <video src="media/videos/head.mp4" class="head-video" muted autoplay loop></video>
+                <div class="container-head">
+                    <h2 class="logo-title ">Выбирай нас</h2>
+                    <h3 class="head-title">Самый передовой колледж Кыргызстана</h3>
+                    <p class="head-text">Живи для учения, учись для жизни...</p>
+                </div>
+            </div>
+    </header>
+    <main>
+        <div class="wrapper">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+    <section class="contact">
+        <div class="wrapper">
+            <h1 class="section-title">Контакты</h1>
+            <div class="contact-info">
+              <div class="footer-box">
+                <div class="container-footer">
+                  <img src="{% static '/images/call-1.png' %}" alt="" width="50px" />
+                  <p class="info-contact-box">Телефон</p>
+                  <p class="contact-text">Единый бесплатный номер: 9311</p>
+                </div>
+                <div class="container-footer">
+                  <img src="{% static '/images/instagram-1.jpg.png' %}" alt="" width="50px" />
+                  <p class="info-contact-box">Instagram</p>
+                  <p class="contact-text">@nomadcolledge.kg</p>
+                </div>
+                  <div class="container-footer">
+                      <img src="{% static '/images/telegram-1.png' %}" alt="" width="50px" />
+                      <p class="info-contact-box">Telegram</p>
+                      <p class="contact-text">+996 (708) 422-942</p>
+                </div>
+              </div>
+              <div class="footer-box">
+                  <div class="container-footer">
+                      <img src="{% static '/images/email-1.png' %}" alt="" width="50px" />
+                      <p class="info-contact-box">E-MAIL</p>
+                      <p class="contact-text">nomad@iuk.kg</p>
+                  </div>
+                  <div class="container-footer">
+                      <img src="{% static '/images/location-1.png' %}" alt="" width="50px" />
+                      <p class="info-contact-box">Адрес</p>
+                      <p class="contact-text">Кыргызстан, г. Бишкек, ул. 7 апреля 4А</p>
+                  </div>
+                  <div class="container-footer">
+                      <img src="{% static '/images/whatsapp-1.png' %}" alt="" width="50px" />
+                      <p class="info-contact-box">Whatsapp</p>
+                      <p class="contact-text">+996 (708) 422-942</p>
+                </div>
+              </div>
+            </div>
+          </div>
+    </section>
+    <footer>
+      <p class="footer-author">
+        ©nomad.iuk.kg | Все права защищены | УНПК "МУК" | 2024г | Сайт
+        разработан студентом 3 курса
+      </p>
+    </footer>
+</body>
+</html>

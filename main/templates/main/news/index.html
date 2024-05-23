@@ -1,0 +1,40 @@
+{% extends "main/_Layout.html" %}
+{% block title %} Nomad College {% endblock %}
+
+{% block content %}
+    {% if main_news %}
+        {% for news_item in main_news %}
+            <div class="main_news">
+                <h2 class="news-title">{{ news_item.title }}</h2>
+                <p class="news-text">{{ news_item.content }}</p>
+                <img src="{{ main_news_item.image.url }}" class="news-img" alt="{{ main_news_item.title }}">
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if professions %}
+        {% for profession in professions %}
+            <div>
+                <h2>{{ profession.title }}</h2>
+                <p>{{ profession.description }}</p>
+                <img src="{{ profession_item.image.url }}" alt="{{ profession_item.title }}">
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {% if prices %}
+        <table class="price">
+            {% for price_item in prices %}
+            <tr>
+                <td>
+                    <img src="{{ price_item.icon.url }}" alt="{{ price_item.title }}">
+                    <h2>{{ price_item.title }}</h2>
+                </td>
+                <td>
+                    <p>Price: ${{ price_item.price }}</p>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+{% endblock %}
