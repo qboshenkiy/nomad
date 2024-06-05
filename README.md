@@ -51,6 +51,7 @@ README.md для запуска проекта на Django
 
 2. Выполните миграции базы данных:
    ```bash
+   python manage.py makemigration
    python manage.py migrate
    ```
 
