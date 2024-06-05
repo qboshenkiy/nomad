@@ -1,40 +1,67 @@
-{% extends "main/_Layout.html" %}
-{% block title %} Nomad College {% endblock %}
+{% extends 'main/_Layout.html' %} {% block title %}
+  Nomad College
+{% endblock %}
+{% load static %}
+{% block news %}
+  {% if main_news %}
+    {% for news_item in main_news %}
+      <div class="main-news" id="news-id">
+        <div>
+          <img src="{{ news_item.image.url }}" class="news-img" alt="{{ main_news_item.title }}" width="600" />
+        </div>
+        <div>
+          <h2 class="news-title">{{ news_item.title }}</h2>
+          <pre class="news-text">{{ news_item.text }}</pre>
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endblock %} {% block content %}
+  {% if professions %}
+      <div class="box-price-sect" id="prof">
+      <h1 class="section-title">Направления подготовки Nomad College</h1>
+      <h2 class="price-text-sect">Длительность обучения - 2 года 10 месяцев</h2>
+    </div>
+    <div class="flex-prof">
+      {% for profession_item in professions %}
+        <div class="prof-div">
+          <div class="absol-title">
+            <h2 class="prof-title">{{ profession_item.title }}</h2>
+          </div>
+          <div class="absol-prof">
+            <p class="prof-text">{{ profession_item.text }}</p>
+          </div>
+          <img src="{{ profession_item.image.url }}" alt="{{ profession_item.title }}" class="prof-img" />
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endblock %}
 
-{% block content %}
-    {% if main_news %}
-        {% for news_item in main_news %}
-            <div class="main_news">
-                <h2 class="news-title">{{ news_item.title }}</h2>
-                <p class="news-text">{{ news_item.content }}</p>
-                <img src="{{ main_news_item.image.url }}" class="news-img" alt="{{ main_news_item.title }}">
-            </div>
-        {% endfor %}
-    {% endif %}
-
-    {% if professions %}
-        {% for profession in professions %}
-            <div>
-                <h2>{{ profession.title }}</h2>
-                <p>{{ profession.description }}</p>
-                <img src="{{ profession_item.image.url }}" alt="{{ profession_item.title }}">
-            </div>
-        {% endfor %}
-    {% endif %}
-
-    {% if prices %}
+{% block price %}
+  {% if prices %}
+    <section class="price-sect" id="buy">
+      <div class="wrapper">
+        <div class="box-price-sect">
+          <h1 class="section-title">СТОИМОСТЬ ОБУЧЕНИЯ</h1>
+          <h4 class="price-text-sect">При высоком уровне обучения и самых передовых условий для студентов, цена годового контракта в нашем колледже сохранена на среднем рыночном уровне</h4>
+        </div>
         <table class="price">
-            {% for price_item in prices %}
+          {% for price_item in prices %}
             <tr>
-                <td>
-                    <img src="{{ price_item.icon.url }}" alt="{{ price_item.title }}">
-                    <h2>{{ price_item.title }}</h2>
-                </td>
-                <td>
-                    <p>Price: ${{ price_item.price }}</p>
-                </td>
+              <td class="td-flex">
+                <div class="table-box">
+                  <img src="{{ price_item.icon.url }}" alt="{{ price_item.title }}" width="35" />
+                  <p>{{ price_item.name }}</p>
+                </div>
+              </td>
+              <td class="td-border-left">
+                <p>{{ price_item.price }}</p>
+              </td>
             </tr>
-            {% endfor %}
+          {% endfor %}
         </table>
-    {% endif %}
+      </div>
+    </section>
+  {% endif %}
 {% endblock %}

@@ -1,86 +1,136 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link href="{% static 'css/site.css' %}" rel="stylesheet">
-    <title>{% block title %}{% endblock %}</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <link href="{% static 'css/site.css' %}" rel="stylesheet" />
+    <title>
+      {% block title %}
+
+      {% endblock %}
+    </title>
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="nav-bar-flex">
-                <img src="{% static '/images/cropped-NC_logo.png' %}" class="logo" alt="" width="140" height="100%"/>
-                <ul class="nav-ul">
-                    <li class="nav-li">О нас</li>
-                    <li class="nav-li">Новости</li>
-                    <li class="nav-li">Специальности</li>
-                    <li class="nav-li">Стоимость</li>
-                    <li class="nav-li">Как поступить</li>
-                    <li class="nav-li">Контакты</li>
-                </ul>
-            </div>
-        </nav>
-        <div class="head-container">
-            <video src="media/videos/head.mp4" class="head-video" muted autoplay loop></video>
-                <div class="container-head">
-                    <h2 class="logo-title ">Выбирай нас</h2>
-                    <h3 class="head-title">Самый передовой колледж Кыргызстана</h3>
-                    <p class="head-text">Живи для учения, учись для жизни...</p>
-                </div>
-            </div>
+      <nav>
+        <div class="nav-bar-flex">
+          <img src="{% static '/images/cropped-NC_logo.png' %}" class="logo" alt="" width="140" height="100%" />
+          <ul class="nav-ul">
+            <li class="nav-li">
+              <a href="#about" class="nav-a">О нас</a>
+            </li>
+            <li class="nav-li">
+              <a href="#news-id" class="nav-a">Новости</a>
+            </li>
+            <li class="nav-li">
+              <a href="#prof" class="nav-a">Специальности</a>
+            </li>
+            <li class="nav-li">
+              <a href="#buy" class="nav-a">Стоимость</a>
+            </li>
+            <li class="nav-li">
+              <a href="#contacts" class="nav-a">Контакты</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <div class="head-container">
+        <video src="media/videos/head.mp4" class="head-video" muted autoplay loop></video>
+        <div class="container-head">
+          <h2 class="logo-title">Выбирай нас</h2>
+          <h3 class="head-title">Самый передовой колледж Кыргызстана</h3>
+          <p class="head-text">Живи для учения, учись для жизни...</p>
+        </div>
+      </div>
     </header>
     <main>
-        <div class="wrapper">
-            {% block content %}{% endblock %}
+      <div class="wrapper">
+        <div class="main-news">
+          <div>
+            <img src="{% static 'images/eksterer-1.png' %}" class="news-img" alt="" />
+          </div>
+          <div>
+            <h2 class="news-title" id="about">О нас</h2>
+            <p class="news-text">Мы готовим специалистов, способных уверенно принимать решения в условиях быстроменяющегося мира, умеющих креативно мыслить и готовых к вызовам современного рынка труда! «Номад Колледж» имеет всё для комфортного погружения в образовательный процесс. Для всех направлений подготовки имеются специализированные кабинеты и лаборатории. Также на базе колледжа организован NOMAD HUB — уникальное место, где студенты могут заниматься самостоятельным обучением, проводить собрания и вести свой факультатив</p>
+          </div>
         </div>
+      </div>
+      <div class="section-content">
+        <div class="content">
+          <div class="wrapper">
+            {% block content %}
+
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+      <div class="wrapper">
+        {% block news %}
+
+        {% endblock %}
+      </div>
+      <section class="flex" style="background-image: url('{% static '/images/zatemnenie-TOPa-Nomad-3.jpg' %}')">
+        <div class="contact-give-title">
+          <h2 class="title-contact-give">Некогда искать информацию на сайте?</h2>
+          <p class="text-contact-give">Оставьте свои контактные данные, и мы расскажем обо всех возможностях, которые предоставляет обучение в Nomad College</p>
+          <form class="form-group" method="post">
+            {% csrf_token %}
+            <input type="tel" name="phone" placeholder="Введите номер телефона" />
+            <button type="submit">Отправить</button>
+          </form>
+        </div>
+      </section>
+      {% block price %}
+
+      {% endblock %}
+      {% block message %}
+
+      {% endblock %}
     </main>
-    <section class="contact">
-        <div class="wrapper">
-            <h1 class="section-title">Контакты</h1>
-            <div class="contact-info">
-              <div class="footer-box">
-                <div class="container-footer">
-                  <img src="{% static '/images/call-1.png' %}" alt="" width="50px" />
-                  <p class="info-contact-box">Телефон</p>
-                  <p class="contact-text">Единый бесплатный номер: 9311</p>
-                </div>
-                <div class="container-footer">
-                  <img src="{% static '/images/instagram-1.jpg.png' %}" alt="" width="50px" />
-                  <p class="info-contact-box">Instagram</p>
-                  <p class="contact-text">@nomadcolledge.kg</p>
-                </div>
-                  <div class="container-footer">
-                      <img src="{% static '/images/telegram-1.png' %}" alt="" width="50px" />
-                      <p class="info-contact-box">Telegram</p>
-                      <p class="contact-text">+996 (708) 422-942</p>
-                </div>
-              </div>
-              <div class="footer-box">
-                  <div class="container-footer">
-                      <img src="{% static '/images/email-1.png' %}" alt="" width="50px" />
-                      <p class="info-contact-box">E-MAIL</p>
-                      <p class="contact-text">nomad@iuk.kg</p>
-                  </div>
-                  <div class="container-footer">
-                      <img src="{% static '/images/location-1.png' %}" alt="" width="50px" />
-                      <p class="info-contact-box">Адрес</p>
-                      <p class="contact-text">Кыргызстан, г. Бишкек, ул. 7 апреля 4А</p>
-                  </div>
-                  <div class="container-footer">
-                      <img src="{% static '/images/whatsapp-1.png' %}" alt="" width="50px" />
-                      <p class="info-contact-box">Whatsapp</p>
-                      <p class="contact-text">+996 (708) 422-942</p>
-                </div>
-              </div>
+    <section class="contact" id="contacts">
+      <div class="wrapper">
+        <h1 class="section-title contacts-title">Контакты</h1>
+        <div class="contact-info">
+          <div class="footer-box">
+            <div class="container-footer">
+              <img src="{% static '/images/call-1.png' %}" alt="" width="50px" />
+              <p class="info-contact-box">Телефон</p>
+              <p class="contact-text">Единый бесплатный номер: 9311</p>
+            </div>
+            <div class="container-footer">
+              <img src="{% static '/images/instagram-1.jpg.png' %}" alt="" width="50px" />
+              <p class="info-contact-box">Instagram</p>
+              <p class="contact-text">@nomadcolledge.kg</p>
+            </div>
+            <div class="container-footer">
+              <img src="{% static '/images/telegram-1.png' %}" alt="" width="50px" />
+              <p class="info-contact-box">Telegram</p>
+              <p class="contact-text">+996 (708) 422-942</p>
             </div>
           </div>
+          <div class="footer-box">
+            <div class="container-footer">
+              <img src="{% static '/images/email-1.png' %}" alt="" width="50px" />
+              <p class="info-contact-box">E-MAIL</p>
+              <p class="contact-text">nomad@iuk.kg</p>
+            </div>
+            <div class="container-footer">
+              <img src="{% static '/images/location-1.png' %}" alt="" width="50px" />
+              <p class="info-contact-box">Адрес</p>
+              <p class="contact-text">Кыргызстан, г. Бишкек, ул. 7 апреля 4А</p>
+            </div>
+            <div class="container-footer">
+              <img src="{% static '/images/whatsapp-1.png' %}" alt="" width="50px" />
+              <p class="info-contact-box">Whatsapp</p>
+              <p class="contact-text">+996 (708) 422-942</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
     <footer>
-      <p class="footer-author">
-        ©nomad.iuk.kg | Все права защищены | УНПК "МУК" | 2024г | Сайт
-        разработан студентом 3 курса
-      </p>
+      <p class="footer-author">©nomad.iuk.kg | Все права защищены | УНПК "МУК" | 2024г | Сайт разработан студентом 3 курса</p>
     </footer>
-</body>
+    <script src="{% static 'js/main.js' %}"></script>
+  </body>
 </html>

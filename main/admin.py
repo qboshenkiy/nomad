@@ -11,5 +11,5 @@ class professionNewAdmin(admin.ModelAdmin):
 
 @admin.register(tablePrice)
 class tablePriceAdmin(admin.ModelAdmin):
-    list_display = ('icon', 'name', 'price')
+    list_display = ('name', 'icon', 'price')
 
